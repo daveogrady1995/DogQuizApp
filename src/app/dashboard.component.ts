@@ -11,16 +11,14 @@ import { QuizService } from './quiz.service';
 })
 
 export class DashboardComponent implements OnInit {
+    questions: Question[];
 
-  constructor(
-    private router: Router,
-    private quizService: QuizService) { }
+    constructor(
+        private router: Router,
+        private quizService: QuizService) { }
 
     ngOnInit(): void {
-       
+        this.quizService.getQuestions().then(questions => this.questions = questions);
     }
 
-  startQuiz(): void {
-    this.router.navigate(['/question', 1]);
-  }
 }

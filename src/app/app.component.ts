@@ -5,7 +5,9 @@ import { QuizService } from './quiz.service';
 @Component({
   selector: 'app-root',
   template: `
-    <router-outlet></router-outlet>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
     `,
   styleUrls: ['./app.component.css']
 })

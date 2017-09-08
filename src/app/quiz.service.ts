@@ -8,16 +8,16 @@ import { Question } from './question';
 @Injectable()
 export class QuizService {
 
-    private heroesUrl = 'api/quiz';  // URL to web api
+    private quizUrl = 'api/questions';  // URL to web api
 
     constructor(private http: Http) { }
 
-    // getHeroes(): Promise<Hero[]> {
-    //     return this.http.get(this.heroesUrl)
-    //         .toPromise()
-    //         .then(response => response.json().data as Hero[])
-    //         .catch(this.handleError);
-    // }
+    getQuestions(): Promise<Question[]> {
+        return this.http.get(this.quizUrl)
+            .toPromise()
+            .then(response => response.json().data as Question[])
+            .catch(this.handleError);
+    }
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
@@ -25,7 +25,7 @@ export class QuizService {
     }
         
     getQuestion(id: number): Promise<Question> {
-        const url = `${this.heroesUrl}/${id}`;
+        const url = `${this.quizUrl}/${id}`;
         return this.http.get(url)
             .toPromise()
             .then(response => response.json().data as Question)

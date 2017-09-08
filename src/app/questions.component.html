@@ -1,0 +1,27 @@
+<div *ngIf="currentQuestion" class="row">
+    <div class="col-md-6 offset-md-4">
+        <h4>Question {{currentQuestion.id}}</h4>
+        <fieldset class="form-group">
+            <legend>{{currentQuestion.name}}</legend>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" value={{currentQuestion.options[0]}} checked>
+                    {{currentQuestion.options[0]}}
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" value={{currentQuestion.options[1]}}>
+                    {{currentQuestion.options[1]}}
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" value={{currentQuestion.options[2]}}>
+                    {{currentQuestion.options[2]}}
+                </label>
+            </div>
+        </fieldset>
+        <button (click)="previousQuestion()" [disabled]="currentQuestion.id == 1" class="btn btn-warning">Previous</button>
+        <button (click)="nextQuestion()" [disabled]="currentQuestion.id == 3" class="btn btn-primary">Next</button>
+    </div>
