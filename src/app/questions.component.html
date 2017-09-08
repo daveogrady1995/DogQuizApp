@@ -23,5 +23,6 @@
             </div>
         </fieldset>
         <button (click)="previousQuestion()" [disabled]="currentQuestion.id == 1" class="btn btn-warning">Previous</button>
-        <button (click)="nextQuestion()" [disabled]="currentQuestion.id == 3" class="btn btn-primary">Next</button>
+        <button *ngIf="currentQuestion.id != 3;else finish_button" (click)="nextQuestion()" class="btn btn-primary">Next</button>
+        <ng-template #finish_button><button (click)="finishQuiz()" class="btn btn-success">Finish</button></ng-template>
     </div>

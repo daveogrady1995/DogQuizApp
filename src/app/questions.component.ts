@@ -26,7 +26,6 @@ export class QuestionsComponent {
     }
 
     nextQuestion(): void {
-      debugger;
       this.quizService.getQuestion(this.currentQuestion.id + 1).then(question => this.currentQuestion = question);
     }
 
